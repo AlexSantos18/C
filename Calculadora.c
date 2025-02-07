@@ -34,8 +34,8 @@ int main(){
         system("pause");
     }else if (escolha == 4)
     {
-        resultado = (vr1 / vr2);
-        printf("Seu resultado foi %f\n", resultado);
+        resultado = (float)vr1 / vr2;
+        printf("Seu resultado foi %.2f\n", resultado);
         system("pause");
     }else if (escolha > 4)
     {
