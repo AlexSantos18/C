@@ -11,7 +11,6 @@ float dens_populacional = 0;
 float pib_capita = 0;
 
 void imprimir_cab(void){
-
     printf("=======================================\n");
     printf("= Cadastramento da Carta Super Trunfo =\n");
     printf("=======================================\n");
@@ -19,8 +18,6 @@ void imprimir_cab(void){
 }
 
 void imprimir_dados(void){
-
-    
     printf("=======================\n");
     printf("=  Dados Cadastrados  =\n");
     printf("=======================\n");
@@ -65,14 +62,7 @@ void saida_dados(void){
 
 }
 
-
-
-
-
 int main() {
- 
-
-
     
     // Inicio da solicitaçao de dados dos usuarios
     imprimir_cab();
