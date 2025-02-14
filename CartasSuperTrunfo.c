@@ -182,6 +182,7 @@ void saida_dados(void){
 
 int main() {
 
+    int resultado;
     
     
     // Inicio da solicitaçao de dados dos usuarios
@@ -221,27 +222,33 @@ int main() {
     printf("\n");
 
     printf("A Carta %s tem uma Area %.2f e a Carta %s tem uma Area %.2f\n", cod_carta, area, cod_carta2, area2);
-    printf("Carta %s e Maior que Carta %s resultado %f\n", cod_carta, cod_carta2, area > area2);
+    resultado = (area > area2);
+    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
 
     printf("A Carta %s tem um PIB %.2f e a Carta %s tem um PIB %.2f\n", cod_carta, pib, cod_carta2, pib2);
-    printf("Carta %s e Maior que Carta %s resultado %f\n", cod_carta, cod_carta2, pib > pib2);
+    resultado = pib > pib2;
+    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
 
     printf("A Carta %s tem Pontos Turisticos %d e a Carta %s tem Pontos Turisticos %d\n", cod_carta, n_turisticos, cod_carta2, n_turisticos2);
-    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, n_turisticos > n_turisticos2);
+    resultado = n_turisticos > n_turisticos2;
+    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
 
     printf("A Carta %s tem uma Densidade Populacional %.2f e a Carta %s tem uma Densidade Populacional %.2f\n", cod_carta, dens_populacional, cod_carta2, dens_populacional2);
-    printf("Carta %s e Menor que Carta %s resultado %f\n", cod_carta, cod_carta2, dens_populacional < dens_populacional2);
+    resultado = dens_populacional < dens_populacional2;
+    printf("Carta %s e Menor que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
 
     printf("A Carta %s tem um PIB per Capita %.2f e a Carta %s tem um PIB per Capita %.2f\n", cod_carta, pib_capita, cod_carta2, pib_capita2);
-    printf("Carta %s e Maior que Carta %s resultado %f\n", cod_carta, cod_carta2, pib_capita > pib_capita2);
+    resultado = pib_capita > pib_capita2;
+    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
 
     printf("A Carta %s tem um Super Poder %.2lf e a Carta %s tem um Super Poder %.2lf\n", cod_carta, poder, cod_carta2, poder2);
-    printf("Carta %s e Maior que Carta %s resultado %lf\n", cod_carta, cod_carta2, poder > poder2);
+    resultado = poder > poder2;
+    printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
    
 
