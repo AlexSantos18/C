@@ -250,6 +250,7 @@ int main() {
     resultado = poder > poder2;
     printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, resultado);
     printf("\n");
+    getchar();
    
 
     return 0;
