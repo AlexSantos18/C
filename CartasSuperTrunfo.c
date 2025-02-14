@@ -76,7 +76,7 @@ void entrada_dados(void){
     printf("Carta Cadastrada com Sucesso.\n");
     printf("\n");
     printf("\n");
-    getch();
+    getchar();
 
 }
 
@@ -120,7 +120,7 @@ void entrada_dados2(void){
     printf("Carta Cadastrada com Sucesso.\n");
     printf("\n");
     printf("\n");
-    getch();
+    getchar();
 
 }
 
@@ -149,7 +149,7 @@ void saida_dados(void){
     printf("Numero de Pontos Turisticos: %d\n", n_turisticos);
     printf("\n");
     printf("super Poder : %.2lf\n", poder);
-    getch();
+    getchar();
     system("cls");
 
     // Segunda Carta
@@ -175,7 +175,7 @@ void saida_dados(void){
     printf("Numero de Pontos Turisticos: %d\n", n_turisticos2);
     printf("\n");
     printf("Super Poder: %.2lf\n", poder2);
-    getch();
+    getchar();
     system("cls");
 
 }
