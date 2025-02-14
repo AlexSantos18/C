@@ -217,7 +217,8 @@ int main() {
     // Comparação de cartas
 
     imprimir_disputa();
-    printf("Legenda Resultado 0 = FALSO e 1 = VERDADEIRO\n");
+    printf("LEGENDA DA DISPUTA SE O RESULTADO FOR 0 = FALSO E SE O RESULTADO FOR 1 = VERDADEIRO\n");
+    printf("\n");
     printf("A Carta %s tem uma Populacao %d e a Carta %s tem uma Populacao %d\n", cod_carta, populacao, cod_carta2, populacao2);
     printf("Carta %s e Maior que Carta %s resultado %d\n", cod_carta, cod_carta2, populacao > populacao2);
     printf("\n");
