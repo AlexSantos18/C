@@ -192,6 +192,8 @@ void menu(void)
 // Funçao menu2 a ser chamada no programa
 void menu2(void)
 {
+    printf("ESCOLHA UM ATRIBUTO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] Densidade Populacional\n");
@@ -205,6 +207,8 @@ void menu2(void)
 
 void menu_populacao(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Area\n");
     printf("[2] Densidade Populacional\n");
     printf("[3] PIB\n");
@@ -217,6 +221,8 @@ void menu_populacao(void)
 
 void menu_area(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Densidade Populacional\n");
     printf("[3] PIB\n");
@@ -229,6 +235,8 @@ void menu_area(void)
 
 void menu_densidade(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] PIB\n");
@@ -240,6 +248,8 @@ void menu_densidade(void)
 }
 void menu_pib(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] Densidade Populacional\n");
@@ -251,6 +261,8 @@ void menu_pib(void)
 }
 void menu_per_capita(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] Densidade Populacional\n");
@@ -263,6 +275,8 @@ void menu_per_capita(void)
 
 void menu_turisticos(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] Densidade Populacional\n");
@@ -275,6 +289,8 @@ void menu_turisticos(void)
 
 void menu_poder(void)
 {
+    printf("ESCOLHA UM SEGUNDO ATRIBUDO DA CARTA\n");
+    printf("\n");
     printf("[1] Populacao\n");
     printf("[2] Area\n");
     printf("[3] Densidade Populacional\n");
@@ -905,7 +921,7 @@ int main(){
             }
             else
             {
-                ("A Carta 2 %s foi a Vencedora\n", cidade2);
+                printf("A Carta 2 %s foi a Vencedora\n", cidade2);
             }
             printf("\n");
             break;
