@@ -852,13 +852,13 @@ int main()
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
                 printf("\n");
-                printf("Carta 1 %s tem uma Densidade Populacional %.2f\nCarta %s tem uma Densidade Populacional %.2f\n", cidade, dens_populacional, cidade2, dens_populacional2);
-                // densidade a menor vence
-                if (dens_populacional == dens_populacional2)
+                printf("Carta 1 %s tem uma Populacao %d \nCarta 2 %s tem uma Populacao %d\n", cidade, populacao, cidade2, populacao2);
+
+                if (populacao == populacao2)
                 {
                     printf("Houve empate!!!\n");
                 }
-                else if (dens_populacional < dens_populacional2)
+                else if (populacao > populacao2)
                 {
                     printf("A Carta 1 %s foi a Vencedora\n", cidade);
                 }
@@ -868,6 +868,7 @@ int main()
                 }
 
                 printf("\n");
+
                 break;
             case 2:
                 imprimir_disputa();
@@ -893,7 +894,6 @@ int main()
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
                 printf("\n");
                 printf("Carta 1 %s tem uma Area %.2f\nCarta 2 %s tem uma Area %.2f\n", cidade, area, cidade2, area2);
-
                 if (area == area2)
                 {
                     printf("Houve empate!!!\n");
@@ -904,9 +904,8 @@ int main()
                 }
                 else
                 {
-                    printf("A Carta 2 %s foi a Vencedora\n", cidade2);
+                    ("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-
                 printf("\n");
                 break;
             case 3:
@@ -1338,8 +1337,8 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");            
-            break;
+                printf("\n");
+                break;
             case 2:
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
@@ -1358,8 +1357,8 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");                
-            break;
+                printf("\n");
+                break;
             case 3:
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
@@ -1378,8 +1377,8 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");               
-            break;
+                printf("\n");
+                break;
             case 4:
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
@@ -1398,8 +1397,8 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");    
-            break;
+                printf("\n");
+                break;
             case 5:
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
@@ -1418,8 +1417,8 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");                
-            break;
+                printf("\n");
+                break;
             case 6:
                 imprimir_disputa();
                 printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
@@ -1438,16 +1437,14 @@ int main()
                 {
                     printf("A Carta 2 %s foi a Vencedora\n", cidade2);
                 }
-                printf("\n");                
-            break;
+                printf("\n");
+                break;
 
             default:
                 break;
             }
 
-
-
-        break;
+            break;
         case 6:
             imprimir_disputa();
             printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
