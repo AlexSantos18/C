@@ -76,7 +76,6 @@ void entrada_dados(void){
     printf("\n");
     getchar();
     system("cls");
-
 }
 
      // funçao a saida de dados cadastrados 
