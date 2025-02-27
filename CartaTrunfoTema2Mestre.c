@@ -298,7 +298,7 @@ void disputa_pib(void){
     printf("\n");
 }
 
-void disputa_pib_capita(voi){
+void disputa_pib_capita(void){
     imprimir_dados("Hora da Disputa!!!");
     printf("REGRA DO JOGO (TODOS OS ATRIBUTOS A MAIOR VENCE EXCETO A DENSIDADE POPULACIONAL DO QUAL A MENOR VENCE)\n");
     printf("\n");
