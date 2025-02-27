@@ -344,18 +344,18 @@ void disputa_poder(void){
     printf("\n");
 }
 // funçao soma os dois atributos de cada carta
-void disputa_final(float c1_atrib1, float c1_atirb2, float c2_atrib1, float c2_atrib2){
-    float total_atributo1, total_atributo2; 
-    total_atributo1 = (float)c1_atrib1 + (float)c1_atirb2;
-    total_atributo2 = (float)c2_atrib1 + (float)c2_atrib2;
+void disputa_final(double c1_atrib1, double c1_atirb2, double c2_atrib1, double c2_atrib2){
+    long double total_atributo1, total_atributo2; 
+    total_atributo1 = (long double)c1_atrib1 + (long double)c1_atirb2;
+    total_atributo2 = (long double)c2_atrib1 + (long double)c2_atrib2;
     imprimir_dados("HORA DA BATALHA FINAL!!!");
     if (total_atributo1 > total_atributo2){
-        printf("A Carta 1 tem um total de %.2f de Atributo\n", total_atributo1);
-        printf("A Carta 2 tem um total de %.2f de Atributo\n", total_atributo2);
+        printf("A Carta 1 tem um total de %.2Lf de Atributo\n", total_atributo1);
+        printf("A Carta 2 tem um total de %.2Lf de Atributo\n", total_atributo2);
         printf("A Carta 1 Venceu a Batalha!!!");
     } else {
-        printf("A Carta 1 tem um total de %.2f de Atributo\n", total_atributo1);
-        printf("A Carta 2 tem um total de %.2f de Atributo\n", total_atributo2);
+        printf("A Carta 1 tem um total de %.2Lf de Atributo\n", total_atributo1);
+        printf("A Carta 2 tem um total de %.2Lf de Atributo\n", total_atributo2);
         printf("A Carta 2 Venceu a Batalha!!!");
     }
 }
@@ -401,24 +401,31 @@ int main(){
             break;
             
         case 2: // escolha densidade 
-           
-
+            disputa_populacao();
+            disputa_dens();
+            disputa_final(populacao, populacao2, dens_populacional, dens_populacional2);
             break;
         case 3: // escolha pib
-            
+            disputa_populacao();
+            disputa_pib();
+            disputa_final(populacao, populacao2, pib, pib2);
             break;
 
         case 4: // escolha pib per capita
-            
-
+            disputa_populacao();
+            disputa_pib_capita();
+            disputa_final(populacao, populacao2, pib_capita, pib_capita2);
             break;
 
         case 5: // escolha pontos turisticos
-            
+            disputa_populacao();
+            disputa_turismo();
+            disputa_final(populacao, populacao2, n_turisticos, n_turisticos2);
             break;
         case 6: // escolha super poder
-            
-
+            disputa_populacao();
+            disputa_poder();
+            disputa_final(populacao, populacao2, poder, poder2);
             break;
 
         default:
@@ -434,22 +441,34 @@ int main(){
         switch (opcao)
         {
         case 1: // escolha populaçao 
-            
+            disputa_area();
+            disputa_populacao();
+            disputa_final(area, area2, populacao, populacao2);
             break;
         case 2: // escolha densidade 
-            
+            disputa_area();
+            disputa_dens();
+            disputa_final(area, area2, dens_populacional, dens_populacional2);
             break;
         case 3: // escolha pib
-            
+            disputa_area();
+            disputa_pib();
+            disputa_final(area, area2, pib, pib2);
             break;
         case 4: // escolha pib per capita
-           
+            disputa_area();
+            disputa_pib_capita();
+            disputa_final(area, area2, pib_capita, pib_capita2);
             break;
         case 5: // escolha pontos turisticos
-           
+            disputa_area();
+            disputa_turismo();
+            disputa_final(area, area2, n_turisticos, n_turisticos2);
             break;
         case 6: // escolha super poder
-           
+            disputa_area();
+            disputa_poder();
+            disputa_final(area, area2, poder, poder2);
             break;
 
         default:
@@ -466,23 +485,34 @@ int main(){
         switch (opcao)
         {
         case 1: // escolha populaçao
-            
-
+            disputa_dens();
+            disputa_populacao();
+            disputa_final(dens_populacional, dens_populacional2, populacao, populacao2);
             break;
         case 2: // escolha area 
-           
+            disputa_dens();
+            disputa_area();
+            disputa_final(dens_populacional, dens_populacional2, area, area2);
             break;
         case 3: // escolha pib
-           
+            disputa_dens();
+            disputa_pib();
+            disputa_final(dens_populacional, dens_populacional2, pib, pib2);
             break;
         case 4: // escolha pib per capita
-            
+            disputa_dens();
+            disputa_pib_capita();
+            disputa_final(dens_populacional, dens_populacional2, pib_capita, pib_capita2);
             break;
         case 5: // escolha pontos turisticos 
-            
+            disputa_dens();
+            disputa_turismo();
+            disputa_final(dens_populacional, dens_populacional2, n_turisticos, n_turisticos2);
             break;
         case 6: // escolha super poder
-            
+            disputa_dens();
+            disputa_poder();
+            disputa_final(dens_populacional, dens_populacional2, poder, poder2);
             break;
 
         default:
@@ -497,23 +527,34 @@ int main(){
         switch (opcao)
         {
         case 1: // escolha populaçao 
-            
+            disputa_pib();
+            disputa_populacao();
+            disputa_final(pib, pib2, populacao, populacao2);
             break;
         case 2: // escolha area
-            
+            disputa_pib();
+            disputa_area();
+            disputa_final(pib, pib2, area, area2);
             break;
         case 3: // escolha densidade
-            
+            disputa_pib();
+            disputa_dens();
+            disputa_final(pib, pib2, dens_populacional, dens_populacional2);
             break;
         case 4: // escolha pib per capita
-           
+            disputa_pib();
+            disputa_pib_capita();
+            disputa_final(pib, pib2, pib_capita, pib_capita2);
             break;
         case 5: // escolha pontos turisticos
-            
-            break;
+            disputa_pib();
+            disputa_turismo();
+            disputa_final(pib, pib2, n_turisticos, n_turisticos2);
             break;
         case 6: // escolha super poder 
-            
+            disputa_pib();
+            disputa_poder();
+            disputa_final(pib, pib2, poder, poder2);
             break;
             
         default:
@@ -528,23 +569,35 @@ int main(){
         switch (opcao)
         {
         case 1:  // escolha populaçao 
-            
+            disputa_pib_capita();
+            disputa_populacao();
+            disputa_final(pib_capita, pib_capita2, populacao, populacao2);
             break;
            
         case 2: // escolha area 
-            
+            disputa_pib_capita();
+            disputa_area();
+            disputa_final(pib_capita, pib_capita2, area, area2);
             break;
         case 3: // escolha densidade 
-            
+            disputa_pib_capita();
+            disputa_dens();
+            disputa_final(pib_capita, pib_capita2, dens_populacional, dens_populacional2);
             break;
         case 4: // escolha pib
-            
+            disputa_pib_capita();
+            disputa_pib();
+            disputa_final(pib_capita, pib_capita2, pib, pib2);
             break;
         case 5: // escolha pontos turisticos 
-            
+            disputa_pib_capita();
+            disputa_turismo();
+            disputa_final(pib_capita, pib_capita2, n_turisticos, n_turisticos2);
             break;
         case 6: // escolha super poder 
-            
+            disputa_pib_capita();
+            disputa_poder();
+            disputa_final(pib_capita, pib_capita2, poder, poder2);
             break;
 
         default:
@@ -561,22 +614,34 @@ int main(){
         switch (opcao)
         {
         case 1: //escolha populaçao
-            
+            disputa_turismo();
+            disputa_populacao();
+            disputa_final(n_turisticos, n_turisticos2, populacao, populacao2);
             break;
         case 2: // escolha area 
-            
+            disputa_turismo();
+            disputa_area();
+            disputa_final(n_turisticos, n_turisticos2, area, area2);
             break;
         case 3: // escolha densidade
-            
+            disputa_turismo();
+            disputa_dens();
+            disputa_final(n_turisticos, n_turisticos2, dens_populacional, dens_populacional2);
             break;
         case 4: // escolha pib
-            
+            disputa_turismo();
+            disputa_pib();
+            disputa_final(n_turisticos, n_turisticos2, pib, pib2);
             break;
         case 5: // escolha pib per capita
-            
+            disputa_turismo();
+            disputa_pib_capita();
+            disputa_final(n_turisticos, n_turisticos2, pib_capita, pib_capita2);
             break;
         case 6: // escolha super poder 
-           
+            disputa_turismo();
+            disputa_poder();
+            disputa_final(n_turisticos, n_turisticos2, poder, poder2);
             break;
 
         default:
@@ -592,22 +657,34 @@ int main(){
         switch (opcao)
         {
         case 1: // escolha populaçao
-            
+            disputa_poder();
+            disputa_populacao();
+            disputa_final(poder, poder2, populacao, populacao2);
             break;
         case 2: // escolha area 
-            
+            disputa_poder();
+            disputa_area();
+            disputa_final(poder, poder2, area, area2);
             break;
         case 3: // escolha  densidade 
-            
+            disputa_poder();
+            disputa_dens();
+            disputa_final(poder, poder2, dens_populacional, dens_populacional2);
             break;
         case 4: // escolha pib 
-            
+            disputa_poder();
+            disputa_pib();
+            disputa_final(poder, poder2, pib, pib2);
             break;
         case 5: // escolha pib per capita
-            
+            disputa_poder();
+            disputa_pib_capita();
+            disputa_final(poder, poder2, pib_capita, pib_capita2);
             break;
         case 6:  // escolha pontos turisticos 
-            
+            disputa_poder();
+            disputa_turismo();
+            disputa_final(poder, poder2, n_turisticos, n_turisticos2);
             break;
 
         default:
