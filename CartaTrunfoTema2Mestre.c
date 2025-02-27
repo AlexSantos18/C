@@ -343,7 +343,22 @@ void disputa_poder(void){
     }
     printf("\n");
 }
-
+// funçao soma os dois atributos de cada carta
+void disputa_final(float c1_atrib1, float c1_atirb2, float c2_atrib1, float c2_atrib2){
+    float total_atributo1, total_atributo2; 
+    total_atributo1 = (float)c1_atrib1 + (float)c1_atirb2;
+    total_atributo2 = (float)c2_atrib1 + (float)c2_atrib2;
+    imprimir_dados("HORA DA BATALHA FINAL!!!");
+    if (total_atributo1 > total_atributo2){
+        printf("A Carta 1 tem um total de %.2f de Atributo\n", total_atributo1);
+        printf("A Carta 2 tem um total de %.2f de Atributo\n", total_atributo2);
+        printf("A Carta 1 Venceu a Batalha!!!");
+    } else {
+        printf("A Carta 1 tem um total de %.2f de Atributo\n", total_atributo1);
+        printf("A Carta 2 tem um total de %.2f de Atributo\n", total_atributo2);
+        printf("A Carta 2 Venceu a Batalha!!!");
+    }
+}
 
 
 int main(){
@@ -380,9 +395,9 @@ int main(){
         switch (opcao) 
         {
         case 1:     // escolha area
-            disputa_populacao();
+            disputa_populacao(); // chama a funçao de disputa
             disputa_area();
-
+            disputa_final(populacao, area, populacao2, area2); // chama a funçao de soma de atributo
             break;
             
         case 2: // escolha densidade 
