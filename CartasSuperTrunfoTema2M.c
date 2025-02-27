@@ -3,7 +3,7 @@
 
 //// Desafio Nivel Mestre
 
-char estado[2], estado2[2];
+char estado[4], estado2[4];
 char cod_carta[5], cod_carta2[5];
 char cidade[50], cidade2[50];
 int populacao = 0, populacao2 = 0;
@@ -43,12 +43,12 @@ void imprimir_disputa(void)
 void entrada_dados(void)
 {
     printf("Digite a letra correspondente ao Estado: ");
-    scanf(" %s", estado);
+    scanf("%s", estado);
     printf("\n"); // pula uma linha
     getchar();    // limpa o buffer do teclado para cada entrada de dados.
 
     printf("Digite o Codigo da Carta: ");
-    scanf(" %s", cod_carta);
+    scanf("%s", cod_carta);
     printf("\n");
     getchar();
 
