@@ -343,21 +343,24 @@ void disputa_poder(void){
     printf("\n");
 }
 // funçao soma os dois atributos de cada carta
-void disputa_final(double c1_atrib1, double c1_atirb2, double c2_atrib1, double c2_atrib2){
-    long double total_atributo1, total_atributo2; 
-    total_atributo1 = (long double)c1_atrib1 + (long double)c1_atirb2;
-    total_atributo2 = (long double)c2_atrib1 + (long double)c2_atrib2;
+void disputa_final(double c1_atrib1, double c2_atrib1, double c1_atrib2, double c2_atrib2){
+     double total_atributo1 = 0, total_atributo2 = 0; 
+    total_atributo1 = ( double)c1_atrib1 + ( double)c1_atrib2;
+    total_atributo2 = ( double)c2_atrib1 + ( double)c2_atrib2;
     imprimir_dados("HORA DA BATALHA FINAL!!!");
+    
+    printf("A Carta 1 tem um total de %.2f de Atributo\n", total_atributo1);
+    printf("A Carta 2 tem um total de %.2f de Atributo\n", total_atributo2);
+    
     if (total_atributo1 > total_atributo2){
-        printf("A Carta 1 tem um total de %.2Lf de Atributo\n", total_atributo1);
-        printf("A Carta 2 tem um total de %.2Lf de Atributo\n", total_atributo2);
         printf("A Carta 1 Venceu a Batalha!!!");
-    } else {
-        printf("A Carta 1 tem um total de %.2Lf de Atributo\n", total_atributo1);
-        printf("A Carta 2 tem um total de %.2Lf de Atributo\n", total_atributo2);
+    } else if (total_atributo1 < total_atributo2) {
         printf("A Carta 2 Venceu a Batalha!!!");
+    } else {
+        printf("Empate! Nenhuma carta venceu.");
     }
 }
+
 
 
 int main(){
@@ -396,7 +399,7 @@ int main(){
         case 1:     // escolha area
             disputa_populacao(); // chama a funçao de disputa
             disputa_area();
-            disputa_final(populacao, area, populacao2, area2); // chama a funçao de soma de atributo
+            disputa_final(populacao, populacao2, area, area2); // chama a funçao de soma de atributo
             break;
             
         case 2: // escolha densidade 
