@@ -6,6 +6,7 @@
 
 int main() {
     int i = 1, n = 1;
+    int j;
     
 
     // Primeiro loop ultilizado foi do while
@@ -24,7 +25,7 @@ int main() {
     printf("\n");
 
     // Segundo loop ultilizado foi o for
-    // a variavel i do for nao interfere na variavel global
+    
 
 
     printf("Jogador seu Bispo sera movimentado 5 casas na diagonal para direita e acima \n");
@@ -50,6 +51,34 @@ int main() {
         n++;
     }
     
+    printf("\n");
+    printf("\n");
+    printf("\n");
+
+    i = 1;
+
+    // Loop encadeado ultilizando o do while externo e o form interno
+
+    printf("Jogador seu Cavalo sera movimentado 2 casas para baixo para esquerda \n");
+
+    do
+    {
+        for (j = 0; j < 2; j++)
+        {
+            printf("Baixo\n");
+        }
+
+        printf("Esquerda\n");
+        
+    } while (i < 1);
+    
+
+
+
+
+
+
+
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
