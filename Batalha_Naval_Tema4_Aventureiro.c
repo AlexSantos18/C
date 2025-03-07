@@ -16,6 +16,14 @@ int main() {
         tabuleiro[barco[2] + i][barco[1]] = 3; // Laço que percorre o vetor barco e atribui o valor 3 a matriz tabuleiro vertical
     }                                           // indice 2 tem valor 3 + 0 = 3 percorre ate a linha 3 e aqui a coluna é fixa o que percore é a linha e adiciona o valor 3 e assim por diante.
 
+    for (i = 0; i < 3; i++){
+        tabuleiro[i + 1][i + 4] = 3; // aqui não utilizei o vetor barco, mas sim os valores diretamente no código
+    }                               // Aqui a linha percore de 1 a 3 e a coluna de 4 a 6
+
+    for(i = 0; i<3; i++){
+        tabuleiro[i + 6][i + 0] = 3; // aqui não utilizei o vetor barco, mas sim os valores diretamente no código
+    }                                  // aqui a linha percore de 6 a 8 e a coluna de 0 a 2
+
  
     for (i = 0; i < 10; i++) {
         for (j = 0; j < 10; j++) { // Laço que percorre a matriz tabuleiro e imprime os valores com a formatação de um tabuleiro
