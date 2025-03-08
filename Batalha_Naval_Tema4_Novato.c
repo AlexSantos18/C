@@ -4,8 +4,9 @@ int main() {
     int tabuleiro[10][10] = {{0}}; // criação de uma matriz 10x10 com todos os elementos iguais a 0
     int barco[3] = {3, 3, 3}; // criação de um vetor com 3 elementos iguais a 3
 
-       int i, j; // variaveis de controle de laço
-
+    int i, j; // variaveis de controle de laço
+    
+    printf("BATALHA NAVAL!!!! \n\n");
     printf(" __  __  __  __  __  __  __  __  __  __\n");
 
     for (i  = 0; i < 3; i++) {

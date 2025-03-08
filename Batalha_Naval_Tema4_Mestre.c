@@ -24,7 +24,7 @@ int main() {
         {0,0,3,0,0}}; // criação de uma matriz 5x5 com todos os elementos formando um octógono
 
        int i, j; // variaveis de controle de laço
-
+    printf("BATALHA NAVAL!!!! \n\n");
     printf(" __  __  __  __  __  __  __  __  __  __\n");
 
     for (i = 0; i < 5; i++) {           // laço para percorrer as linhas da matriz

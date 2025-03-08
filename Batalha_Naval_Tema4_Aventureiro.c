@@ -5,7 +5,7 @@ int main() {
     int barco[3] = {3, 3, 3}; // criação de um vetor com 3 elementos iguais a 3
 
        int i, j; // variaveis de controle de laço
-
+    printf("BATALHA NAVAL!!!! \n\n");
     printf(" __  __  __  __  __  __  __  __  __  __\n");
 
     for (i  = 0; i < 3; i++) {
