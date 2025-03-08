@@ -29,11 +29,6 @@ void Rainha(int casa){
     }
 }
 
-
-
-
-
-
 int main() {
     int i = 1, n = 1;
     int j, m, k;
