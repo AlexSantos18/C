@@ -31,7 +31,7 @@ int main(){
     
     int opcao;
 
-    // menu
+    // Menu de Cadastro
 
     do
     {
@@ -62,10 +62,10 @@ int main(){
             printf("\n");
             
 
-            if (totalcontinente < MAX_TERRITORIO) { 
-                
+            if (totalcontinente < MAX_TERRITORIO) { // Verifica se já esta cadastrado os 5 territorio e retorna 
+                                                    // limite maximo 
 
-                for (int i = 0; i < 5; i++){ 
+                for (int i = 0; i < 5; i++){      // for para cadastrar todos os territorios
                     printf("Digite o Territorio %d : ", totalcontinente + 1);
                     fgets(continente[totalcontinente].nome, TAM_STRING_NOME, stdin);
 
@@ -94,7 +94,7 @@ int main(){
                 printf("\n");
                 break;
             }
-        case 2:
+        case 2:    // Listagem dos territorios 
             printf("\n");
             printf("########################\n");
             printf("Listagem dos Territorios\n");
