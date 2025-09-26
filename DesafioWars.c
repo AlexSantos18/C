@@ -85,18 +85,44 @@ int main(){
                     printf("Territorio cadastrado com sucesso!\n");
                     printf("__________________________________\n");
                     printf("\n");
+                    
                 }
+            break;
 
             } else { 
-                printf("Limite maximo de territorios atingido!\n");
-                    break;
+                printf("**** Limite maximo de territorios atingido! ****\n");
+                printf("\n");
+                break;
             }
+        case 2:
+            printf("\n");
+            printf("########################\n");
+            printf("Listagem dos Territorios\n");
+            printf("########################\n");
+            printf("\n");
+
+            if (totalcontinente < MAX_TERRITORIO){
+                printf("**** Nao existe Territorio Cadastrado! ****\n");
+                printf("\n");
+                break;
+            } else { 
+                for (int i = 0; i < 5; i++){
+                    printf("Nome do Territorio: %s\n", continente[i].nome);
+                    printf("Cor da Tropas: %s\n", continente[i].cor);
+                    printf("Quantidade de Tropas: %d\n\n", continente[i].tropas);
+                    printf("______________________________________\n");
+                    printf("\n");
+                }
+            break;
+
+            }
+            
         default:
             break;
         }
 
 
-    }while (opcao == '3');
+    }while (opcao != 3);
 }
 
 
