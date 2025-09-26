@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Constantes Globais
+
+#define MAX_TERRITORIO 5
+#define TAM_STRING_NOME 30
+#define TAM_STRING_COR 10
+
+// criacao da strutura de dados 
+typedef struct{
+    char nome[30];
+    char cor[10];
+    int tropas;   
+}Territorio;
+
+// Funcao limpa buffer teclado
+
+void LimpaBuffer(){
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+
+// programa principal
+
+int main(){
+    Territorio continente[MAX_TERRITORIO];
+    int totalcontinente = 0;
+    
+    int opcao;
+
+    // menu
+
+    do
+    {
+ 
+        printf("Cadastro de Territorios\n");
+        printf("=========================\n");
+        printf("1 - Cadastrar um novo Territorio\n");
+        printf("2 - Listagem de Territorio\n");
+        printf("3 - Sair\n");
+        printf("_________________________\n");
+        printf("Escolha uma opcao: ");
+
+        // ler a opcao do usuario
+
+        scanf("%d", &opcao);
+        LimpaBuffer();
+        
+
+        // opcoes no switch
+
+        switch (opcao)
+        {
+        case 1:
+            printf("\n");
+            printf("########################\n");
+            printf("Cadastro Novo Territorio\n");
+            printf("########################\n");
+            printf("\n");
+            
+
+            if (totalcontinente < MAX_TERRITORIO) { 
+                
+
+                for (int i = 0; i < 5; i++){ 
+                    printf("Digite o Territorio %d : ", totalcontinente + 1);
+                    fgets(continente[totalcontinente].nome, TAM_STRING_NOME, stdin);
+
+                    printf("Digite a cor das tropas. (Ex: Verde, Vermelho ...) : ");
+                    fgets(continente[totalcontinente].cor, TAM_STRING_COR, stdin);
+
+                    continente[totalcontinente].nome[strcspn(continente[totalcontinente].nome, "\n")] = '\0';
+                    continente[totalcontinente].cor[strcspn(continente[totalcontinente].cor, "\n")] = '\0'; 
+
+
+                    printf("Digite a quantidade de tropas: ");
+                    scanf("%d", &continente[totalcontinente].tropas);
+                    LimpaBuffer();
+                    
+                    totalcontinente++;
+                    printf("\n");
+                    printf("Territorio cadastrado com sucesso!\n");
+                    printf("__________________________________\n");
+                    printf("\n");
+                }
+
+            } else { 
+                printf("Limite maximo de territorios atingido!\n");
+                    break;
+            }
+        default:
+            break;
+        }
+
+
+    }while (opcao == '3');
+}
+
+
+
+
+
+

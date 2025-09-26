@@ -49,12 +49,12 @@ int main(){
         case 1:
             entrada_dados(&teste);
             entrada_dados(&teste2);
-            system("cls"); 
+           // system("cls"); 
             break;
         case 2:
             saida_dados(teste);
             saida_dados(teste2);
-            system("cls");
+           // system("cls");
             break;
         case 3:
             while (i <= 10)

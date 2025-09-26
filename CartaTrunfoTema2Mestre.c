@@ -75,7 +75,7 @@ void entrada_dados(void){
     printf("\n");
     printf("\n");
     getchar();
-    system("cls");
+    system("clear");
 }
 
      // funçao a saida de dados cadastrados 
@@ -373,7 +373,7 @@ int main(){
     // Inicio da solicitaçao de dados dos usuarios
     imprimir_cab();
     entrada_dados();
-    system("cls"); // quando compilado no vscode windows do contrario no linux usar o clear
+    system("clear"); // quando compilado no vscode windows do contrario no linux usar o clear
     calculo_pop_pib();
     super_poder();
 
@@ -381,7 +381,7 @@ int main(){
 
     imprimir_dados("Cartas Cadastradas");
     saida_dados();
-    system("cls");
+    system("clear");
  
     // Menu da Disputa
     imprimir_dados("Escolha um Atributo para Jogar");
@@ -391,7 +391,7 @@ int main(){
     switch (opcao) // menu escolha de propriedades
     {
     case 1: // menu escolha populaçao 
-        system("cls");
+        system("clear");
         menu_populacao();
         scanf("%d", &opcao);
         switch (opcao) 
@@ -436,7 +436,7 @@ int main(){
 
         break;
     case 2: // menu area 
-        system("cls");
+        system("clear");
         menu_area();
         scanf("%d", &opcao);
 
@@ -480,7 +480,7 @@ int main(){
         
 
     case 3: // escolha densidade 
-        system("cls");
+        system("clear");
         menu_densidade();
         scanf("%d", &opcao);
 
@@ -522,7 +522,7 @@ int main(){
         }
         break;
     case 4: // escolha menu pib
-        system("cls");
+        system("clear");
         menu_pib();
         scanf("%d", &opcao);
 
@@ -564,7 +564,7 @@ int main(){
         }
         break;
     case 5: // escolha menu per capita 
-        system("cls");
+        system("clear");
         menu_per_capita();
         scanf("%d", &opcao);
 
@@ -609,7 +609,7 @@ int main(){
         break;
 
     case 6: // escolha pontos turisticos 
-        system("cls");
+        system("clear");
         menu_turisticos();
         scanf("%d", &opcao);
 
@@ -652,7 +652,7 @@ int main(){
 
         break;
     case 7: // escolha super poder
-        system("cls");
+        system("clear");
         menu_poder();
         scanf("%d", &opcao);
 
