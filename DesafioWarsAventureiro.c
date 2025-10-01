@@ -104,13 +104,13 @@ void Batalha(Territorio *continente, int totalcontinente)
         return;
     }
 
-    // impressao para a escolha
+    // impressao dos Territorios para a escolha Ataque e Defesa
 
     for (int i = 0; i < totalcontinente; i++)
     {
         Territorio *atual = continente + i;
         printf("Territorio %d: , Nome: %s, Cor: %s, Numeros de tropas: %d\n", i + 1, atual->nome, atual->cor, atual->tropas);
-        printf("________________________________________________________________________\n\n");
+        printf("________________________________________________________________________\n");
     }
 
     printf("\n\n");
@@ -119,24 +119,32 @@ void Batalha(Territorio *continente, int totalcontinente)
     {
         printf("\nOpcao invalida! Digite um numero entre 1 e 5\n");
         LimpaBuffer();
+        return;
     }
     printf("Escolha o numero do Territorio que Defendera: ");
     if (scanf("%d", &defesa) != 1)
     {
         printf("\nOpcao invalida! Digite um numero entre 1 e 5\n");
         LimpaBuffer();
+        return;
     }
-    printf("Rolando o dado .....\n");
-    int dado_ataque = 1 + rand() % 10;
-    int dado_defesa = 1 + rand() % 10;
+    if (ataque == defesa){
+        printf("O Territorio de Ataque não pode ser igual ao da Defesa a batalha será reiniciada!! \n");
+        return;
+    }
+    printf("Rolando o dado .....\n\n");
+    int dado_ataque = 1 + rand() % 6;   // usando random para simular o dado entre 1 e 6
+    int dado_defesa = 1 + rand() % 6;
 
     printf("O Territorio %d Atque tirou %d\n", ataque, dado_ataque);
     printf("O Territorio %d Defesa tirou %d\n", defesa, dado_defesa);
-    printf("________________________________________________________________________\n\n");
+    printf("________________________________________________________________________\n");
 
     if (dado_ataque == dado_defesa)
     {
         printf("Houve empate!!");
+        printf("A Batalha deve ser recomeçada");
+        return;
     }
     else if (dado_ataque > dado_defesa)
     {
@@ -165,7 +173,7 @@ void Batalha(Territorio *continente, int totalcontinente)
     {
         Territorio *atual = continente + i;
         printf("Territorio %d: , Nome: %s, Cor: %s, Numeros de tropas: %d\n", i + 1, atual->nome, atual->cor, atual->tropas);
-        printf("________________________________________________________________________\n\n");
+        printf("________________________________________________________________________\n");
     }
 }
 
