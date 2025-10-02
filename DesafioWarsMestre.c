@@ -3,9 +3,9 @@
 #include <string.h>
 #include <time.h>
 
-// ============================================================================
+
 // CONSTANTES GLOBAIS
-// ============================================================================
+
 #define MAX_TERRITORIO 5
 #define TAM_STRING_NOME 30
 #define TAM_STRING_COR 10
@@ -14,9 +14,9 @@
 #define QT_MISSOES 5
 #define TAM_MISSAO 100
 
-// ============================================================================
+
 // ESTRUTURAS DE DADOS
-// ============================================================================
+
 typedef struct
 {
     char nome[TAM_STRING_NOME];
@@ -31,9 +31,9 @@ typedef struct
     int completada;      // 1 = completada, 0 = não completada
 } MissaoJogador;
 
-// ============================================================================
+
 // FUNÇÕES AUXILIARES
-// ============================================================================
+
 
 /**
  * Limpa o buffer de entrada para evitar problemas com scanf
@@ -47,8 +47,7 @@ void LimparBuffer()
 
 /**
  * Imprime um único território formatado
- * @param t Ponteiro para o território
- * @param indice Número do território para exibição (indice do vetor)
+ * indice Número do território para exibição (indice do vetor)
  */
 void ImprimirTerritorio(Territorio *t, int indice)
 {
@@ -59,11 +58,9 @@ void ImprimirTerritorio(Territorio *t, int indice)
     printf("______________________________________\n\n");
 }
 
-/**
- * Imprime um território em formato resumido 
- * @param t Ponteiro para o território
- * @param indice Número do território para exibição (indice do vetor)
- */
+
+// Imprime um território em formato resumido 
+
 void ImprimirTerritorioResumido(Territorio *t, int indice)
 {
     printf("Territorio %d: Nome: %s, Cor: %s, Tropas: %d\n",
@@ -71,36 +68,29 @@ void ImprimirTerritorioResumido(Territorio *t, int indice)
     printf("________________________________________________________________________\n");
 }
 
-/**
- * Valida se um número está dentro do intervalo permitido
- * @param valor Valor a ser validado
- * @param min Valor mínimo permitido
- * @param max Valor máximo permitido
- * @return 1 se válido, 0 se inválido
- */
+
+ // Valida se um número está dentro do intervalo permitido
+
 int ValidarIntervalo(int valor, int min, int max)
 {
     return (valor >= min && valor <= max);
 }
 
-/**
- * Simula o lançamento de um dado 
- * @return Valor entre 1 e 6
- */
+
+ //Simula o lançamento de um dado de 1 a 6
+
 int LancarDado()
 {
     return 1 + rand() % 6;
 }
 
-// ============================================================================
-// FUNÇÕES DE GERENCIAMENTO DE TERRITÓRIOS
-// ============================================================================
 
-/**
- * Inicializa os territórios ja com os dados preenchidos 
- * Usa calloc para alocar memória 
- * @return Ponteiro para vetor de territórios alocado dinamicamente
- */
+// FUNÇÕES DE GERENCIAMENTO DE TERRITÓRIOS
+
+
+
+ //Inicializa os territórios ja com os dados preenchidos 
+
 Territorio *InicializarTerritorio()
 {
     // Alocando memória com calloc 
@@ -137,11 +127,8 @@ Territorio *InicializarTerritorio()
     return territorios;
 }
 
-/**
- * Lista todos os territórios cadastrados
- * @param territorios Ponteiro para vetor de territórios
- * @param total Quantidade de territórios no vetor
- */
+ //Lista todos os territórios cadastrados
+
 void ListarTerritorios(Territorio *territorios, int total)
 {
     if (territorios == NULL || total == 0)
@@ -155,7 +142,7 @@ void ListarTerritorios(Territorio *territorios, int total)
     printf("Listagem dos Territorios\n");
     printf("########################\n\n");
 
-    // Usando aritmética de ponteiros para percorrer o array
+    // Usando aritmética de ponteiros para percorrer o vetor
     for (int i = 0; i < total; i++)
     {
         Territorio *atual = territorios + i;
@@ -163,10 +150,9 @@ void ListarTerritorios(Territorio *territorios, int total)
     }
 }
 
-/**
- * Libera a memória alocada para os territórios
- * @param territorios Ponteiro duplo para poder setar NULL após free
- */
+
+ // Libera a memória alocada para os territórios
+ 
 void LiberarTerritorios(Territorio **territorios)
 {
     if (*territorios != NULL)
@@ -177,15 +163,11 @@ void LiberarTerritorios(Territorio **territorios)
     }
 }
 
-// ============================================================================
 // FUNÇÕES DE SISTEMA DE MISSÕES
-// ============================================================================
 
-/**
- * Cria e retorna um vetor de strings com todas as missões disponíveis
- * Usa calloc para alocar memória dinamicamente
- * @return Ponteiro para array de ponteiros de strings (char**)
- */
+
+// Cria e retorna um vetor de strings com todas as missões disponíveis
+
 char **Missoes()
 {
     // Alocando array de ponteiros para strings
@@ -219,11 +201,9 @@ char **Missoes()
     return missoes;
 }
 
-/**
- * Sorteia uma missão aleatória e atribui ao jogador
- * @param missaoJogador Ponteiro para estrutura da missão do jogador
- * @param missoes vetor de strings com todas as missões 
- */
+
+ // Sorteia uma missão aleatória 
+
 void AtribuirMissao(MissaoJogador *missaoJogador, char **missoes)
 {
     if (missaoJogador == NULL || missoes == NULL)
@@ -240,17 +220,16 @@ void AtribuirMissao(MissaoJogador *missaoJogador, char **missoes)
     missaoJogador->ativa = 1;
     missaoJogador->completada = 0;
 
-    printf("\n==============================================\n");
+    printf("\n============================================\n");
     printf("  MISSAO ATRIBUIDA!\n");
     printf("==============================================\n");
     printf("Sua missao: %s\n", missaoJogador->descricao);
     printf("==============================================\n\n");
 }
 
-/**
- * Exibe a missão atual do jogador
- * @param missaoJogador Ponteiro para estrutura da missão do jogador
- */
+
+ //Exibe a missão atual do jogador
+
 void MissaoAtual(MissaoJogador *missaoJogador)
 {
     if (missaoJogador == NULL)
@@ -285,13 +264,10 @@ void MissaoAtual(MissaoJogador *missaoJogador)
     printf("\n");
 }
 
-/**
- * Verifica se a missão foi completada após uma batalha
- * @param missaoJogador Ponteiro para estrutura da missão do jogador
- * @param territorios Ponteiro para vetor de territórios
- * @param total Quantidade total de territórios
- * @return 1 se missão foi completada, 0 caso contrário
- */
+
+ //Verifica se a missão foi completada após uma batalha
+ // retorna 1 se missão foi completada, 0 caso contrário
+
 int VerificarMissao(MissaoJogador *missaoJogador, Territorio *territorios, int total)
 {
     if (missaoJogador == NULL || territorios == NULL || !missaoJogador->ativa)
@@ -383,10 +359,9 @@ int VerificarMissao(MissaoJogador *missaoJogador, Territorio *territorios, int t
     return 0;
 }
 
-/**
- * Libera a memória alocada para as missões
- * @param missoes Ponteiro duplo para o vetor de strings
- */
+
+ // Libera a memória alocada para as missões
+
 void LiberarMissoes(char ***missoes)
 {
     if (*missoes != NULL)
@@ -407,17 +382,13 @@ void LiberarMissoes(char ***missoes)
     }
 }
 
-// ============================================================================
-// FUNÇÕES DE BATALHA
-// ============================================================================
 
-/**
- * Lê e valida a escolha de um território
- * @param mensagem Mensagem a ser exibida ao usuário
- * @param min Índice mínimo permitido
- * @param max Índice máximo permitido
- * @return Índice escolhido ou -1 em caso de erro
- */
+// FUNÇÕES DE BATALHA
+
+
+
+ //Lê e valida a escolha de um território para ataque e defesa
+
 int LerEscolhaTerritorio(const char *mensagem, int min, int max)
 {
     int escolha;
@@ -441,14 +412,9 @@ int LerEscolhaTerritorio(const char *mensagem, int min, int max)
     return escolha;
 }
 
-/**
- * Processa a vitória do atacante
- * @param atacante Ponteiro para território atacante
- * @param defensor Ponteiro para território defensor
- * @param indiceDefesa Índice do defensor (para exibição)
- * @param missaoJogador Ponteiro para missão do jogador
- * @return 1 se houve conquista total, 0 caso contrário
- */
+
+// Processa a vitória do atacante e retorna 1 se houve conquista e 0 caso contrario
+
 int ProcessarVitoriaAtaque(Territorio *atacante, Territorio *defensor, int indiceDefesa, MissaoJogador *missaoJogador)
 {
     printf("\n>>> O Territorio de Ataque VENCEU! <<<\n");
@@ -478,12 +444,8 @@ int ProcessarVitoriaAtaque(Territorio *atacante, Territorio *defensor, int indic
     }
 }
 
-/**
- * Processa a vitória do defensor
- * @param atacante Ponteiro para território atacante
- * @param defensor Ponteiro para território defensor
- * @param indiceAtaque Índice do atacante (para exibição)
- */
+// Processa a vitória do defensor
+
 void ProcessarVitoriaDefesa(Territorio *atacante, Territorio *defensor, int indiceAtaque)
 {
     printf("\n>>> O Territorio de Defesa RESISTIU! <<<\n");
@@ -502,12 +464,9 @@ void ProcessarVitoriaDefesa(Territorio *atacante, Territorio *defensor, int indi
     }
 }
 
-/**
- * Executa uma batalha entre dois territórios
- * @param territorios Ponteiro para array de territórios
- * @param total Quantidade total de territórios
- * @param missaoJogador Ponteiro para missão do jogador
- */
+
+ //Executa uma batalha entre dois territórios
+
 void Batalha(Territorio *territorios, int total, MissaoJogador *missaoJogador)
 {
     printf("\n########################\n");
@@ -551,7 +510,7 @@ void Batalha(Territorio *territorios, int total, MissaoJogador *missaoJogador)
         return;
     }
 
-    // Ponteiros para os territórios envolvidos (convertendo de 1-based para 0-based)
+    // Ponteiros para os territórios envolvidos (indice com reduçao para localizar no vetor)
     Territorio *atacante = territorios + (indiceAtaque - 1);
     Territorio *defensor = territorios + (indiceDefesa - 1);
 
@@ -595,17 +554,13 @@ void Batalha(Territorio *territorios, int total, MissaoJogador *missaoJogador)
     printf("\n");
 }
 
-// ============================================================================
-// FUNÇÕES DE INTERFACE
-// ============================================================================
 
-/**
- * Exibe o menu principal
- */
+// Exibe o menu principal
+ 
 void ExibirMenu()
 {
     printf("===========================\n");
-    printf("         JOGO WAR \n");
+    printf("   JOGO WAR ESTRUTURADO \n");
     printf("===========================\n");
     printf("1 - Inicializar Territorios\n");
     printf("2 - Listar Territorios\n");
@@ -616,10 +571,9 @@ void ExibirMenu()
     printf("Escolha uma opcao: ");
 }
 
-/**
- * Lê e valida a opção do menu
- * @return Opção escolhida ou -1 em caso de erro
- */
+
+ //Lê e valida a opção do menu
+
 int LerOpcaoMenu()
 {
     int opcao;
@@ -635,9 +589,7 @@ int LerOpcaoMenu()
     return opcao;
 }
 
-// ============================================================================
 // PROGRAMA PRINCIPAL
-// ============================================================================
 
 int main()
 {
@@ -661,7 +613,7 @@ int main()
     }
 
     printf("\n==============================================\n");
-    printf("              BEM-VINDO AO WARS\n");
+    printf("        BEM-VINDO AO WARS ESTRUTURADO\n");
     printf("==============================================\n\n");
 
     // Loop principal do menu
