@@ -3,7 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-
 // CONSTANTES GLOBAIS
 
 #define MAX_TERRITORIO 5
@@ -13,7 +12,6 @@
 #define MAX_TROPAS 5
 #define QT_MISSOES 5
 #define TAM_MISSAO 100
-
 
 // ESTRUTURAS DE DADOS
 
@@ -34,10 +32,8 @@ typedef struct
 
 // FUNÇÕES AUXILIARES
 
-
-/**
- * Limpa o buffer de entrada para evitar problemas com scanf
- */
+ // Limpa o buffer de entrada para evitar problemas com scanf
+ 
 void LimparBuffer()
 {
     int c;
@@ -45,10 +41,9 @@ void LimparBuffer()
         ;
 }
 
-/**
- * Imprime um único território formatado
- * indice Número do território para exibição (indice do vetor)
- */
+ //Imprime um único território formatado
+ //indice Número do território para exibição (indice do vetor)
+ 
 void ImprimirTerritorio(Territorio *t, int indice)
 {
     printf("Territorio %d:\n", indice);
@@ -57,7 +52,6 @@ void ImprimirTerritorio(Territorio *t, int indice)
     printf("  Quantidade de Tropas: %d\n", t->tropas);
     printf("______________________________________\n\n");
 }
-
 
 // Imprime um território em formato resumido 
 
@@ -68,14 +62,12 @@ void ImprimirTerritorioResumido(Territorio *t, int indice)
     printf("________________________________________________________________________\n");
 }
 
-
  // Valida se um número está dentro do intervalo permitido
 
 int ValidarIntervalo(int valor, int min, int max)
 {
     return (valor >= min && valor <= max);
 }
-
 
  //Simula o lançamento de um dado de 1 a 6
 
@@ -84,11 +76,7 @@ int LancarDado()
     return 1 + rand() % 6;
 }
 
-
 // FUNÇÕES DE GERENCIAMENTO DE TERRITÓRIOS
-
-
-
  //Inicializa os territórios ja com os dados preenchidos 
 
 Territorio *InicializarTerritorio()
@@ -150,7 +138,6 @@ void ListarTerritorios(Territorio *territorios, int total)
     }
 }
 
-
  // Libera a memória alocada para os territórios
  
 void LiberarTerritorios(Territorio **territorios)
@@ -164,8 +151,6 @@ void LiberarTerritorios(Territorio **territorios)
 }
 
 // FUNÇÕES DE SISTEMA DE MISSÕES
-
-
 // Cria e retorna um vetor de strings com todas as missões disponíveis
 
 char **Missoes()
@@ -227,7 +212,6 @@ void AtribuirMissao(MissaoJogador *missaoJogador, char **missoes)
     printf("==============================================\n\n");
 }
 
-
  //Exibe a missão atual do jogador
 
 void MissaoAtual(MissaoJogador *missaoJogador)
@@ -263,7 +247,6 @@ void MissaoAtual(MissaoJogador *missaoJogador)
     
     printf("\n");
 }
-
 
  //Verifica se a missão foi completada após uma batalha
  // retorna 1 se missão foi completada, 0 caso contrário
@@ -359,7 +342,6 @@ int VerificarMissao(MissaoJogador *missaoJogador, Territorio *territorios, int t
     return 0;
 }
 
-
  // Libera a memória alocada para as missões
 
 void LiberarMissoes(char ***missoes)
@@ -384,10 +366,7 @@ void LiberarMissoes(char ***missoes)
 
 
 // FUNÇÕES DE BATALHA
-
-
-
- //Lê e valida a escolha de um território para ataque e defesa
+//Lê e valida a escolha de um território para ataque e defesa
 
 int LerEscolhaTerritorio(const char *mensagem, int min, int max)
 {
@@ -411,7 +390,6 @@ int LerEscolhaTerritorio(const char *mensagem, int min, int max)
 
     return escolha;
 }
-
 
 // Processa a vitória do atacante e retorna 1 se houve conquista e 0 caso contrario
 
@@ -463,7 +441,6 @@ void ProcessarVitoriaDefesa(Territorio *atacante, Territorio *defensor, int indi
         printf("O territorio atacante perdeu 1 tropa.\n");
     }
 }
-
 
  //Executa uma batalha entre dois territórios
 
@@ -554,7 +531,6 @@ void Batalha(Territorio *territorios, int total, MissaoJogador *missaoJogador)
     printf("\n");
 }
 
-
 // Exibe o menu principal
  
 void ExibirMenu()
@@ -570,7 +546,6 @@ void ExibirMenu()
     printf("___________________________\n");
     printf("Escolha uma opcao: ");
 }
-
 
  //Lê e valida a opção do menu
 
