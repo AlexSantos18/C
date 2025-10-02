@@ -30,6 +30,125 @@ typedef struct
 } MissaoJogador;
 
 
+void LimparBuffer();
+void ImprimirTerritorio(Territorio *t, int indice);
+void ImprimirTerritorioResumido(Territorio *t, int indice);
+int ValidarIntervalo(int valor, int min, int max);
+int LancarDado();
+Territorio *InicializarTerritorio();
+void ListarTerritorios(Territorio *territorios, int total);
+void LiberarTerritorios(Territorio **territorios);
+char **Missoes();
+void AtribuirMissao(MissaoJogador *missaoJogador, char **missoes);
+void MissaoAtual(MissaoJogador *missaoJogador);
+int VerificarMissao(MissaoJogador *missaoJogador, Territorio *territorios, int total);
+void LiberarMissoes(char ***missoes);
+int LerEscolhaTerritorio(const char *mensagem, int min, int max);
+int ProcessarVitoriaAtaque(Territorio *atacante, Territorio *defensor, int indiceDefesa, MissaoJogador *missaoJogador);
+void ProcessarVitoriaDefesa(Territorio *atacante, Territorio *defensor, int indiceAtaque);
+void Batalha(Territorio *territorios, int total, MissaoJogador *missaoJogador);
+void ExibirMenu();
+int LerOpcaoMenu();
+
+
+// PROGRAMA PRINCIPAL
+
+int main()
+{
+    // Inicializar gerador de números aleatórios
+    srand(time(NULL));
+
+    // Variáveis de controle
+    Territorio *territorios = NULL;
+    char **listaMissoes = NULL;
+    MissaoJogador *missaoJogador = NULL;
+    int totalTerritorios = 0;
+    int opcao;
+    int jaInicializado = 0;
+
+    // Alocar estrutura da missão do jogador
+    missaoJogador = (MissaoJogador *)calloc(1, sizeof(MissaoJogador));
+    if (missaoJogador == NULL)
+    {
+        printf("\n[ERRO] Falha ao alocar memoria para missao do jogador!\n");
+        return 1;
+    }
+
+    printf("\n==============================================\n");
+    printf("        BEM-VINDO AO WARS ESTRUTURADO\n");
+    printf("==============================================\n\n");
+
+    // Loop principal do menu
+    do
+    {
+        ExibirMenu();
+        opcao = LerOpcaoMenu();
+
+        if (opcao == -1)
+        {
+            continue; // Erro na leitura, mostrar menu novamente
+        }
+
+        switch (opcao)
+        {
+        case 1:
+            if (jaInicializado)
+            {
+                printf("\n[AVISO] Territorios ja foram inicializados!\n");
+                printf("Os territorios existentes serao substituidos.\n");
+                LiberarTerritorios(&territorios);
+                LiberarMissoes(&listaMissoes);
+            }
+
+            territorios = InicializarTerritorio();
+            totalTerritorios = MAX_TERRITORIO;
+            
+            // Criar lista de missões e atribuir uma ao jogador
+            listaMissoes = Missoes();
+            AtribuirMissao(missaoJogador, listaMissoes);
+            
+            jaInicializado = 1;
+            break;
+
+        case 2:
+            ListarTerritorios(territorios, totalTerritorios);
+            break;
+
+        case 3:
+            MissaoAtual(missaoJogador);
+            break;
+
+        case 4:
+            Batalha(territorios, totalTerritorios, missaoJogador);
+            break;
+
+        case 5:
+            printf("\n==============================================\n");
+            printf("  Encerrando o programa...\n");
+            printf("  Obrigado por jogar!\n");
+            printf("==============================================\n\n");
+            break;
+
+        default:
+            printf("\n[ERRO] Opcao invalida! Escolha entre 1 e 5.\n\n");
+            break;
+        }
+
+    } while (opcao != 5);
+
+    // Liberação de memória antes de encerrar
+    LiberarTerritorios(&territorios);
+    LiberarMissoes(&listaMissoes);
+    
+    if (missaoJogador != NULL)
+    {
+        free(missaoJogador);
+        printf("[INFO] Memoria de missao do jogador liberada.\n");
+    }
+
+    return 0;
+}
+
 // FUNÇÕES AUXILIARES
 
  // Limpa o buffer de entrada para evitar problemas com scanf
@@ -562,102 +681,4 @@ int LerOpcaoMenu()
 
     LimparBuffer();
     return opcao;
-}
-
-// PROGRAMA PRINCIPAL
-
-int main()
-{
-    // Inicializar gerador de números aleatórios
-    srand(time(NULL));
-
-    // Variáveis de controle
-    Territorio *territorios = NULL;
-    char **listaMissoes = NULL;
-    MissaoJogador *missaoJogador = NULL;
-    int totalTerritorios = 0;
-    int opcao;
-    int jaInicializado = 0;
-
-    // Alocar estrutura da missão do jogador
-    missaoJogador = (MissaoJogador *)calloc(1, sizeof(MissaoJogador));
-    if (missaoJogador == NULL)
-    {
-        printf("\n[ERRO] Falha ao alocar memoria para missao do jogador!\n");
-        return 1;
-    }
-
-    printf("\n==============================================\n");
-    printf("        BEM-VINDO AO WARS ESTRUTURADO\n");
-    printf("==============================================\n\n");
-
-    // Loop principal do menu
-    do
-    {
-        ExibirMenu();
-        opcao = LerOpcaoMenu();
-
-        if (opcao == -1)
-        {
-            continue; // Erro na leitura, mostrar menu novamente
-        }
-
-        switch (opcao)
-        {
-        case 1:
-            if (jaInicializado)
-            {
-                printf("\n[AVISO] Territorios ja foram inicializados!\n");
-                printf("Os territorios existentes serao substituidos.\n");
-                LiberarTerritorios(&territorios);
-                LiberarMissoes(&listaMissoes);
-            }
-
-            territorios = InicializarTerritorio();
-            totalTerritorios = MAX_TERRITORIO;
-            
-            // Criar lista de missões e atribuir uma ao jogador
-            listaMissoes = Missoes();
-            AtribuirMissao(missaoJogador, listaMissoes);
-            
-            jaInicializado = 1;
-            break;
-
-        case 2:
-            ListarTerritorios(territorios, totalTerritorios);
-            break;
-
-        case 3:
-            MissaoAtual(missaoJogador);
-            break;
-
-        case 4:
-            Batalha(territorios, totalTerritorios, missaoJogador);
-            break;
-
-        case 5:
-            printf("\n==============================================\n");
-            printf("  Encerrando o programa...\n");
-            printf("  Obrigado por jogar!\n");
-            printf("==============================================\n\n");
-            break;
-
-        default:
-            printf("\n[ERRO] Opcao invalida! Escolha entre 1 e 5.\n\n");
-            break;
-        }
-
-    } while (opcao != 5);
-
-    // Liberação de memória antes de encerrar
-    LiberarTerritorios(&territorios);
-    LiberarMissoes(&listaMissoes);
-    
-    if (missaoJogador != NULL)
-    {
-        free(missaoJogador);
-        printf("[INFO] Memoria de missao do jogador liberada.\n");
-    }
-
-    return 0;
 }
