@@ -176,8 +176,7 @@ void ImprimirTerritorio(Territorio *t, int indice)
 
 void ImprimirTerritorioResumido(Territorio *t, int indice)
 {
-    printf("Territorio %d: Nome: %s, Cor: %s, Tropas: %d\n",
-           indice, t->nome, t->cor, t->tropas);
+    printf("Territorio %d: Nome: %s, Cor: %s, Tropas: %d\n", indice, t->nome, t->cor, t->tropas);
     printf("________________________________________________________________________\n");
 }
 
