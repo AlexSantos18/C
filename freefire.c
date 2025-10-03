@@ -145,7 +145,7 @@ int InserirItem(freefire *Mochila, int contadorItem){
     
     if (contadorItem >= MAX_STRING){
         printf("[AVISO] Mochila cheia de itens!!!");
-        return;
+        return contadorItem;
     }
 
     freefire *novoitem = &Mochila[contadorItem]; 
