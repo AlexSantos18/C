@@ -22,7 +22,7 @@ typedef struct
 
 
 int InserirItem(freefire *Mochila, int contadorItem);
-void RemoverItem();
+void RemoverItem(freefire *Mochila, int *contadorItem, int indice);
 void ListarItens(freefire *Mochila, int contadorItem);
 void BuscarItem();
 void Menu1();
@@ -38,7 +38,7 @@ int main(void){
     // variaveis locais
     int resp = 0;
     int contadorItem = 0;
-
+    
     freefire *Mochila = NULL;
     // Alocando Memoria com Calloc (iniciando com zeros)
 
@@ -58,12 +58,17 @@ int main(void){
     case 1:
     {
         contadorItem = InserirItem(Mochila, contadorItem);
+
         break;
     }
 
     case 2:
     {
-        
+        ListarItens(Mochila, contadorItem);
+        resp = 0;
+        printf("Escolha um indice para remover o item: ");
+        resp = LerUmaOpcao();
+        RemoverItem(Mochila, &contadorItem, resp);
         break;
     }
     case 3:
@@ -95,6 +100,8 @@ int main(void){
 
 return 0;
 }
+
+
 
 void LimpaBuffer(){
     int c;
@@ -129,8 +136,11 @@ int LerUmaOpcao(){
     return resp;
 }
 
-// Inclusão dos Itens no Struct por ponteiro
 
+/// @brief Funçao para inserir item na struct por ponteiros
+/// @param Mochila struct 
+/// @param contadorItem quantidade de itens cadastrados 
+/// @return retorna a quantidade de item
 int InserirItem(freefire *Mochila, int contadorItem){
     
     if (contadorItem >= MAX_STRING){
@@ -174,6 +184,8 @@ void LiberandoMemoria(freefire *mochila){
 
 }*/
 
+
+// Listagem dos itens com alinhamento
 void ListarItens(freefire *Mochila, int contadorItem) {
     if (contadorItem == 0) {
         printf("\nNao existe itens para listagem, utilize a opcao 01 para inserir\n");
@@ -181,7 +193,7 @@ void ListarItens(freefire *Mochila, int contadorItem) {
     }
 
     printf("\n==== LISTAGEM DOS ITENS ====\n");
-    printf("%-15s | %-15s | %-10s\n", "ITEM", "TIPO", "QUANTIDADE");
+    printf("%-15s |%-15s | %-15s | %-10s\n","INDICE", "ITEM", "TIPO", "QUANTIDADE");
     printf("-----------------------------------------------------\n");
 
     for (int i = 0; i < contadorItem; i++) {
@@ -189,9 +201,29 @@ void ListarItens(freefire *Mochila, int contadorItem) {
 
         // %-15s → string alinhada à esquerda com 15 espaços
         // %-10d → número alinhado à esquerda com largura 10
-        printf("%-15s | %-15s | %-10d\n",
+        printf("%-15d |%-15s | %-15s | %-10d\n",
+               i,
                NovaMochila->nome,
                NovaMochila->tipo,
                NovaMochila->quantidade);
     }
 }
+/// @brief funçao remover o item 
+/// @param Mochila passa a struct
+/// @param contadorItem  quantidade de itens na struct
+/// @param indice passa o item para remoçao
+void RemoverItem(freefire *Mochila, int *contadorItem, int indice) {
+    if (indice < 0 || indice >= *contadorItem) {
+        printf("Índice inválido!\n");
+        return;
+    }
+
+    // desloca todos os elementos uma posição para trás
+    for (int i = indice; i < (*contadorItem) - 1; i++) {
+        Mochila[i] = Mochila[i + 1];
+    }
+
+    (*contadorItem)--; // diminui o total de itens
+    printf("Item removido com sucesso!\n");
+}
+
