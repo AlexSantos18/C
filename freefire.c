@@ -24,7 +24,7 @@ typedef struct
 int InserirItem(freefire *Mochila, int contadorItem);
 void RemoverItem(freefire *Mochila, int *contadorItem, int indice);
 void ListarItens(freefire *Mochila, int contadorItem);
-void BuscarItem();
+void BuscarItem(freefire *Mochila, int contadorItem);
 void Menu1();
 void Menu2();
 int LerUmaOpcao();
@@ -78,6 +78,7 @@ int main(void){
     }
     case 4:
     {
+        BuscarItem(Mochila, contadorItem);
         break;
     }
     case 5:
@@ -143,7 +144,7 @@ int LerUmaOpcao(){
 /// @return retorna a quantidade de item
 int InserirItem(freefire *Mochila, int contadorItem){
     
-    if (contadorItem >= MAX_STRING){
+    if (contadorItem >= TAM_MOCHILA){
         printf("[AVISO] Mochila cheia de itens!!!");
         return contadorItem;
     }
@@ -193,15 +194,15 @@ void ListarItens(freefire *Mochila, int contadorItem) {
     }
 
     printf("\n==== LISTAGEM DOS ITENS ====\n");
-    printf("%-15s |%-15s | %-15s | %-10s\n","INDICE", "ITEM", "TIPO", "QUANTIDADE");
-    printf("-----------------------------------------------------\n");
+    printf("%-15s |%-30s | %-15s | %-10s\n","INDICE", "ITEM", "TIPO", "QUANTIDADE");
+    printf("------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < contadorItem; i++) {
         freefire *NovaMochila = Mochila + i;
 
         // %-15s → string alinhada à esquerda com 15 espaços
         // %-10d → número alinhado à esquerda com largura 10
-        printf("%-15d |%-15s | %-15s | %-10d\n",
+        printf("%-15d |%-30s | %-15s | %-10d\n",
                i,
                NovaMochila->nome,
                NovaMochila->tipo,
@@ -225,5 +226,48 @@ void RemoverItem(freefire *Mochila, int *contadorItem, int indice) {
 
     (*contadorItem)--; // diminui o total de itens
     printf("Item removido com sucesso!\n");
+}
+
+void BuscarItem(freefire *Mochila, int contadorItem){
+
+    char Item[MAX_STRING];
+    int encontrado = 0; // Variável para controlar se o item foi achado
+
+    printf("==============BUSCA DE ITENS===============\n");
+    printf("\n");
+
+    if (contadorItem == 0){
+        printf("\nNao existe itens para a busca, utilize a opcao 01 para inserir\n");
+        return;
+    }
+
+    printf("Digite o nome do Item para a busca: ");
+    fgets(Item, MAX_STRING, stdin);
+    Item[strcspn(Item, "\n")] = '\0'; 
+
+    for (int i = 0; i < contadorItem; i++){
+        
+        freefire *busca = Mochila + i;
+        if (strcmp(busca->nome, Item) == 0){ 
+            
+            encontrado = 1; // Marca que o item foi encontrado
+            
+            printf("Item Encontrado!!\n");
+            printf("\n");
+            printf("%-15s |%-30s | %-15s | %-10s\n","INDICE", "ITEM", "TIPO", "QUANTIDADE");
+            printf("------------------------------------------------------------------------------\n");
+            printf("%-15d |%-30s | %-15s | %-10d\n",
+               i,
+               busca->nome,
+               busca->tipo,
+               busca->quantidade);
+            printf("\n");
+
+        }
+    }
+    
+    if (encontrado == 0) {
+        printf("[AVISO] Item nao Encontrado\n");
+    }
 }
 
